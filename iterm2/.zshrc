@@ -24,28 +24,23 @@ plugins=(
 )
 
 # https://ohmyz.sh/
-source $ZSH/oh-my-zsh.sh
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 # Homebrew Disable updates before each app installation
 export HOMEBREW_NO_AUTO_UPDATE=true
 
-# Nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# --------------------------------------------------------- #
-# Custom Aliases
-# --------------------------------------------------------- #
-
-# Python 3.9
-alias python="/usr/local/bin/python3"
-
 # --------------------------------------------------------- #
 # Proxy Aliases
 # --------------------------------------------------------- #
-alias proxy=''
-alias unproxy='unset all_proxy http_proxy https_proxy HTTP_PROXY HTTPS_PROXY'
+alias proxy_shadowsocks=''
+alias unproxy_shadowsocks='unset all_proxy http_proxy https_proxy HTTP_PROXY HTTPS_PROXY'
+
+# --------------------------------------------------------- #
+# Custom
+# --------------------------------------------------------- #
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # --------------------------------------------------------- #
 # Git Aliases
@@ -69,6 +64,7 @@ alias gmv='git mv'
 alias master='git checkout master'
 alias main='git checkout main'
 alias develop='git checkout develop'
+alias gbc='git branch'
 alias gco='git checkout'
 alias gcob='git checkout -b'
 
@@ -111,8 +107,8 @@ function Project() {
     cd ~/Desktop/Projects/$1
 }
 
-function Documents() {
-    cd ~/Desktop/Projects/Documents/$1
+function Document() {
+    cd ~/Desktop/Document/$1
 }
 
 # --------------------------------------------------------- #
@@ -133,3 +129,4 @@ alias c='nr typecheck'
 alias lint='nr lint'
 alias lintf='nr lint --fix'
 alias release='proxy; nr release'
+
